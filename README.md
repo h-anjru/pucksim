@@ -9,11 +9,18 @@ These gaps are a result of a clustering of laser pulses, where many scan lines f
 
 The software presented here was created to examine the scan pattern of the VLP‐16 both qualitatively—i.e., manually examining simulated point clouds—and quantitatively, via spatial statistics. The outputs can be examined in point cloud viewing software such as CloudCompare, and the histograms of the spatial statistics are output as PNGs.
 
+This software was written by an over-caffeinated graduate student version of myself in 2017. I would love nothing more than to treat this all to a thorough code refactoring, but life moves on and so must my research. I present this work as-is.
+
+Development of the software and analysis of the VLP-16 scan pattern is discussed extensively here:
+
+> Lassiter HA, Whitley T, Wilkinson B, Abd-Elrahman A. Scan Pattern Characterization of Velodyne VLP-16 Lidar Sensor for UAS Laser Scanning. Sensors. 2020; 20(24):7351. https://doi.org/10.3390/s20247351
+
 ## How to use
 
-1. Use `puckSim()` to create a simulated point cloud at given flight parameters.
-2. *(optional)* Use `puckOverlap()` on the simulated point cloud to simulate a typical serpentine flying pattern of parallel flight lines resulting in overlapping swaths of lidar coverage.
-3. Use `puckStats()` to analyze the spatial statistics of the simulated point cloud.
+- Use `puckSim()` to create a simulated point cloud at given flight parameters.
+- *(optional)* Use `puckOverlap()` on the simulated point cloud from `puckSim()` to simulate a typical serpentine flying pattern of parallel flight lines resulting in overlapping swaths of lidar coverage.
+- Use `puckStats()` to analyze the spatial statistics of the simulated point cloud, **or**
+- Use `gap_plot_script` to augment the graphical output of `puckStats()` with the results of the gap characterization equations presented in the study.
 
 Details on each of the three MATLAB scripts are given below.
 
@@ -22,7 +29,7 @@ Details on each of the three MATLAB scripts are given below.
 
 This function models the VLP-16 scanner as a point moving parallel to a target plane (specified in puckInt.m) at the specified flying height. The laser returns are modeled by lines with a known direction passing through the scanner point and intersecting the target plane.
 
-The scanner is assumed to be oriented such that its +z axis is coincidentwith the direction of travel, which has been arbitrarily chosen to be the +Y direction in object space. The scanner's y-axis is coincident with the -Z direction on object space. This can be manipulated as described below.
+The scanner is assumed to be oriented such that its +z-axis is coincidentwith the direction of travel, which has been arbitrarily chosen to be the +Y direction in object space. The scanner's y-axis is coincident with the -Z direction in object space. This can be manipulated as described below.
 
 `puckSim(height, speed)` outputs a text file that records the intersections of the modeled laser returns with the target plane. These inputs are required. A speed of 0 (zero) will model a single rotation of the scanner head.
 
@@ -50,8 +57,6 @@ puckSim(50, 10, 'rotationRate', 20, 'profile', 5, 'maxRange', 60, ...
 ```
 
 ![A short swath of simulated lidar data with a five-meter profile highlighted in black.](figures/30_10_profile5m.png)
-
-Reference: VLP-16 User's Manual and Programming Guide.
 
 ## puckOverlap.m
 `puckOverlap(infile, width)` produces a point cloud that simulates three overlapping passes by a UAS-mounted Velodyne PUCK(TM) VLP-16 Laser Scanner. The input must be the output from `puckSim()`, which is the result of simulating a single pass by the UAS-mounted PUCK. The two passes will be parallel, opposite in direction, and separated by some `width` (in meters).
@@ -83,3 +88,8 @@ Reference on spataial statistics method used [available here](http://pro.arcgis.
 
 ![A short swath of simulated lidar data with a five-meter profile highlighted in black; below, sample output from the puckStats() function.](figures/30_10_profile5m_with-histogram.png)
 
+## gap_plot_script.m
+
+This script overlays the results of the gap characterization equations presented in the article referenced above. 
+![Point cloud profile exaggerated along Y-axis to show detail.](figures\results_h45_s9_r5_m120_t0_y0_p8_points.png)
+![Output of puckStats() with gap characterization equation reults shown along X-axis.](figures\results_h45_s9_r5_m120_t0_y0_p8.txt_gaps.png)

@@ -48,24 +48,21 @@ a2.XAxis.FontSize = 14; a2.YAxis.FontSize = 14;
 % replace hyphen with en dash (minus sign)
 a2.XTickLabels = strrep(a2.XTickLabels, '-', '−');
 
-title(infile,'Interpreter','none')
-xlabel('across track [m]','FontSize',14); 
-ylabel('along track [m]','FontSize',14); 
-% name output
-string = infile(1:end-4);
-saveas(f2,[string '_points.png'])
+title(infile,'Interpreter', 'none')
+xlabel('across track [m]', 'FontSize', 14); 
+ylabel('along track [m]', 'FontSize', 14); 
 
-function x_gaps = gap_equation(height,speed,rotation)
-    % GAP_EQUATION
-    %   
-    %   
-    
-        dw = 2;  % angular separation of channels [�]
+% name output
+string = infile(1:end - 4);
+saveas(f2, [string '_points.png'])
+
+function x_gaps = gap_equation(height, speed, rotation)
+        dw = 2;  % angular separation of channels [deg]
     
         ii = 1:10; ii = ii'; % vector for finding "iith" gap
         
         % gap equation (no yaw)
-        xi = height*tan(acos((rotation*height*tand(dw))./(ii*speed)));
+        xi = height*tan(acos((rotation * height * tand(dw)) ./ (ii * speed)));
     
         x_gaps = real(xi);
         x_gaps = x_gaps(x_gaps < 110);
