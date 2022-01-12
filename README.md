@@ -92,6 +92,6 @@ Reference on spataial statistics method used [available here](http://pro.arcgis.
 
 This script overlays the results of the gap characterization equations presented in the article referenced above. 
 
-![Point cloud profile exaggerated along Y-axis to show detail.](figures\results_h45_s9_r5_m120_t0_y0_p8_points.png)
+![Point cloud profile exaggerated along Y-axis to show detail.](figures/results_h45_s9_r5_m120_t0_y0_p8_points.png)
 
-![Output of puckStats() with gap characterization equation reults shown along X-axis.](figures\results_h45_s9_r5_m120_t0_y0_p8.txt_gaps.png)
+![Output of puckStats() with gap characterization equation reults shown along X-axis.](figures/results_h45_s9_r5_m120_t0_y0_p8.txt_gaps.png)
