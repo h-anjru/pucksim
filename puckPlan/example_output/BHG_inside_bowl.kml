@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Folder><name>BHG_inside_bowl</name>
+  <Placemark>
+  <Style><LineStyle><color>aaa0dd00</color><width>3.0</width></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+    <LineString><coordinates>
+      -82.348390,29.649428 
+      -82.348195,29.649521 
+      -82.348712,29.649520 
+      -82.348196,29.649972 
+      -82.348712,29.649972 
+      -82.348195,29.649521 
+      -82.348712,29.649972 
+      -82.348196,29.649972 
+      -82.348712,29.649520 
+      -82.348195,29.649521 
+      -82.348216,29.649502 
+      -82.348216,29.650333 
+      -82.348423,29.650332 
+      -82.348422,29.649502 
+      -82.348629,29.649502 
+      -82.348629,29.650332 
+      -82.348836,29.650332 
+      -82.348836,29.649502 
+      -82.349042,29.649502 
+      -82.349043,29.650332 
+      -82.348390,29.649428 
+    </coordinates></LineString>
+  </Placemark>
+</Folder>
+</Document></kml>

@@ -95,3 +95,9 @@ This script overlays the results of the gap characterization equations presented
 ![Point cloud profile exaggerated along Y-axis to show detail.](figures/results_h45_s9_r5_m120_t0_y0_p8_points.png)
 
 ![Output of puckStats() with gap characterization equation reults shown along X-axis.](figures/results_h45_s9_r5_m120_t0_y0_p8.txt_gaps.png)
+
+## Bonus: puckPlan
+
+During our initial testing of a UAS lidar payload our team, the [UFUAS Research Program](https://uas.ifas.ufl.edu/), was building and studying, we encountered issues with the mission planning software we had at our disposal via DJI. I whipped up a quick script to plan our flights and output them into useable formats.
+
+![An oblique view of the KML flight plans output by puckPlan().](puckPlan/example_output/swamp_mission_plans.jpg)
