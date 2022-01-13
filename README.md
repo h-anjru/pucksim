@@ -3,8 +3,7 @@
 A sensor modeling suite for the Velodyne VLP-16 PUCK laser scanner written in MATLAB.
 
 ![Vizualization of changes in coverage gap pattern when altering flying height, forwards speed, and rotation rate of scanner.](figures/pucksim_video_giffed.gif)
-
-[Link to video](figure/pucksim_video_inspection.gif)
+*Vizualization of changes in coverage gap pattern when altering flying height, forwards speed, and rotation rate of scanner. [Link to video](figure/pucksim_video_inspection.gif)*
 
 ## Overview
 
@@ -63,7 +62,8 @@ puckSim(50, 10, 'rotationRate', 20, 'profile', 5, 'maxRange', 60, ...
 % Output saved to results_h50_s10_r20_m60_t15_y-5_p5.txt.
 ```
 
-![A short swath of simulated lidar data with a five-meter profile highlighted in black.](figures/30_10_profile5m.png)
+![A "fully illuminated" profile (black) within a short swath of a simulated point cloud (color scale = time: blue > red)](figures/30_10_profile5m.png)
+*A "fully illuminated" profile (black) within a short swath of a simulated point cloud (color scale = time: blue > red)*
 
 ## puckOverlap.m
 `puckOverlap(infile, width)` produces a point cloud that simulates three overlapping passes by a UAS-mounted Velodyne PUCK(TM) VLP-16 Laser Scanner. The input must be the output from `puckSim()`, which is the result of simulating a single pass by the UAS-mounted PUCK. The two passes will be parallel, opposite in direction, and separated by some `width` (in meters).
@@ -94,17 +94,21 @@ WARNING: For each bin, a square distance matrix must be computed in order to run
 Reference on spataial statistics method used [available here](http://pro.arcgis.com/en/pro-app/tool-reference/spatial-statistics/h-how-average-nearest-neighbor-distance-spatial-st.htm).
 
 ![A short swath of simulated lidar data with a five-meter profile highlighted in black; below, sample output from the puckStats() function.](figures/30_10_profile5m_with-histogram.png)
+*A short swath of simulated lidar data with a five-meter profile highlighted in black; below, sample output from the `puckStats() `function.*
 
 ## gap_plot_script.m
 
 This script overlays the results of the gap characterization equations presented in the article referenced above. 
 
 ![Point cloud profile exaggerated along Y-axis to show detail.](figures/results_h45_s9_r5_m120_t0_y0_p8_points.png)
+*Point cloud profile exaggerated along Y-axis to show detail.*
 
 ![Output of puckStats() with gap characterization equation reults shown along X-axis.](figures/results_h45_s9_r5_m120_t0_y0_p8.txt_gaps.png)
+*Output of `puckStats()` with gap characterization equation reults shown along X-axis.]*
 
 ## Bonus: puckPlan
 
 During our initial testing of a UAS lidar payload our team, the [UFUAS Research Program](https://uas.ifas.ufl.edu/), was building and studying, we encountered issues with the mission planning software we had at our disposal via DJI. I whipped up a quick script to plan our flights and output them into useable formats.
 
-![An oblique view of the KML flight plans output by puckPlan().](puckPlan/example_output/swamp_mission_plans.jpg)
+![An oblique view of KML flight plans for Ben Hill Griffin Stadium in Gainesville, Florida, USA, created with puckPlan().](puckPlan/example_output/swamp_mission_plans.jpg)
+*An oblique view of KML flight plans for Ben Hill Griffin Stadium in Gainesville, Florida, USA, created with `puckPlan()`.*
