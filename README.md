@@ -1,6 +1,13 @@
 # pucksim
+
 A sensor modeling suite for the Velodyne VLP-16 PUCK laser scanner written in MATLAB.
+
+![Vizualization of changes in coverage gap pattern when altering flying height, forwards speed, and rotation rate of scanner.](figures/pucksim_video_giffed.gif)
+
+[Link to video](figure/pucksim_video_inspection.gif)
+
 ## Overview
+
 Many lightweight laser scanners used for UAS lidar mapping emply a multi-beam, "fan-style" scanner; the Velodyne VLP-16 PUCK laser scanner is among the most popular. The multibeam "fan-style" scanner, despite its high sampling rate, can create a non-uniform coverage of footprints—in other words, coverage gaps.
 
 ![A graphical abstract of the VLP-16 mounted aborad a UAS.](figures/graphical-abstract_large.png)
