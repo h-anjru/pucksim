@@ -1,12 +1,11 @@
 # pucksim
-
 A sensor modeling suite for the Velodyne VLP-16 PUCK laser scanner written in MATLAB.
 
 ![Vizualization of changes in coverage gap pattern when altering flying height, forward speed, and rotation rate of scanner.](figures/pucksim_video_giffed.gif)
-*Vizualization of changes in coverage gap pattern when altering flying height, forward speed, and rotation rate of scanner. [Link to video](figure/pucksim_video_inspection.gif)*
+
+*Vizualization of changes in coverage gap pattern when altering flying height, forward speed, and rotation rate of scanner. [Link to video](supplemental/pucksim_video_inspection.gif)*
 
 ## Overview
-
 Many lightweight laser scanners used for UAS lidar mapping emply a multi-beam, "fan-style" scanner; the Velodyne VLP-16 PUCK laser scanner is among the most popular. The multibeam "fan-style" scanner, despite its high sampling rate, can create a non-uniform coverage of footprintsâ€”in other words, coverage gaps.
 
 ![A graphical abstract of the VLP-16 mounted aborad a UAS.](figures/graphical-abstract_large.png)
@@ -17,12 +16,15 @@ The software presented here was created to examine the scan pattern of the VLPâ€
 
 This software was written by an over-caffeinated graduate student version of myself in 2017. I would love nothing more than to treat this all to a thorough code refactoring, but life moves on and so must my research. I present this work as-is.
 
+## More information
+
 Development of the software and analysis of the VLP-16 scan pattern is discussed extensively here:
 
 > Lassiter HA, Whitley T, Wilkinson B, Abd-Elrahman A. Scan Pattern Characterization of Velodyne VLP-16 Lidar Sensor for UAS Laser Scanning. Sensors. 2020; 20(24):7351. https://doi.org/10.3390/s20247351
 
-## How to use
+I presented results on this study at the ASPRS Annual Conference in 2018. Those slides can be found [here](/supplemental).
 
+## How to use
 - Use `puckSim()` to create a simulated point cloud at given flight parameters.
 - *(optional)* Use `puckOverlap()` on the simulated point cloud from `puckSim()` to simulate a typical serpentine flying pattern of parallel flight lines resulting in overlapping swaths of lidar coverage.
 - Use `puckStats()` to analyze the spatial statistics of the simulated point cloud, **or**
@@ -63,6 +65,7 @@ puckSim(50, 10, 'rotationRate', 20, 'profile', 5, 'maxRange', 60, ...
 ```
 
 ![A "fully illuminated" profile (black) within a short swath of a simulated point cloud (color scale = time: blue > red).](figures/30_10_profile5m.png)
+
 *A "fully illuminated" profile (black) within a short swath of a simulated point cloud (color scale = time: blue > red).*
 
 ## puckOverlap.m
